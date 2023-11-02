@@ -1,195 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome to Sarhad University Course Selections</title>
+    <link rel="icon" type="image/x-icon" href="image2.jpg">
     <style>
-         body {
-            background-color: aqua;
-        }
-
-        .nav {
-            /* border: 1px solid red; */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #966565;
+            margin: 0;
+            padding: 0;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-
-        .nav1 {
-            width: 650px;
-            height: 700px;
-            background-color: antiquewhite;
-            /* border: 1px solid red; */
-            margin: 1rem;
-        }
-
-        .nav2 {
-            width: 650px;
-            height: 700px;
-            background-color: #faebd7;
-            /* border: 1px solid red; */
-            margin: 1rem;
-        }
-
         .container {
-            display: flex;
+            text-align: center;
+            background-color: #464141;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 400px;
         }
-
-        .source-panel,
-        .selected-panel {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            min-width: 150px;
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f0e2e2;
+            margin-bottom: 20px;
         }
-
-        /* Style for ordered lists in source panels */
-        #source-list-1 li,
-        #source-list-2 li {
-            list-style-type: decimal;
+        .message {
+            font-size: 18px;
+            color: #c77a7a;
+            margin-bottom: 30px;
         }
-
-        /* Style for ordered list in selected panel */
-        #selected-list li {
-            list-style-type: decimal;
+        .link {
+            text-decoration: none;
+            color: #926868;
+            background-color: #f5f839;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            transition: background-color 0.3s, color 0.3s;
+            display: block; /* Make the links block-level elements */
+        }
+        .link:hover {
+            background-color: #e9cbb7;
+        }
+        .link + .link {
+            margin-top: 20px; /* Add margin to separate the links vertically */
+            transform: translateY(5px); /* Move the second link down by 5 pixels */
         }
     </style>
 </head>
-
 <body>
-    <h1 style="text-align: center;">Course Selection </h1>
-
-    <div class="nav">
-        <div class="nav1">
-              <!-- Source Panel -->
-            <div class="container">
-                <div class="source-panel">
-                    <h3>Semester 1</h3>
-                    <ul id="source-list-1">
-                        <li draggable="true">Intro to ICT (GE) </li>
-                        <li draggable="true">Intro to CS</li>
-                        <li draggable="true">Calculus & and Anaylatical Geometry ( CS supporting )</li>
-                        <li draggable="true">Physics 1 (UE)</li>
-                        <li draggable="true">Physics 1 Lab</li>
-                        <li draggable="true">Basic Communication Skills (GE)</li>
-                        <li draggable="true">Programming Fundamentals (CS core)</li>
-                        <li draggable="true">Programming Fundamentals Lab</li>
-                        <li draggable="true">Islamic Studies /Values Ethics ( For Non Muslim)</li>
-                        <li draggable="true">Intro to CS</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="container">
-                <div class="source-panel">
-                    <h3>Semester 2</h3>
-                    <ul id="source-list-2">
-                        <li draggable="true">Object Oriented Programming <br>(Pre-Req CS 116)</li>
-                        <li draggable="true">Discrete Maths (CS Core)</li>
-                        <li draggable="true">Effective Communication Skills <br>(GE)</li>
-                        <li draggable="true">Database System (CS Core)</li>
-                        <li draggable="true">Database System Lab</li>
-                        <li draggable="true">Probability & Statistics (CS Supporting)</li>
-                    </ul>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="nav2">
-            <!-- Selected Panel -->
-            <div class="container">
-                <div class="selected-panel">
-                    <h3>Accepted subjects</h3>
-                    <ul id="selected-list">
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <div class="header">Welcome to Sarhad University</div>
+        <div class="message">Explore courses in different programs:</div>
+        <a class="link" href="software engineering.html">Software Engineering Courses</a>
+        <a class="link" href="computer science.html">Computer Science Courses</a>
     </div>
     <script>
-        const sourceLists = document.querySelectorAll('[id^="source-list-"]');
-        const selectedList = document.getElementById('selected-list');
-        let draggedItem = null;
-    
-        // Click activity to select/deselect items
-        sourceLists.forEach(sourceList => {
-            sourceList.addEventListener('click', (event) => {
-                if (event.target.tagName === 'LI') {
-                    const sourceSemester = sourceList.id.replace('source-list-', '');
-                    toggleSelection(event.target, sourceList, selectedList, sourceSemester);
-                }
-            });
-        });
-    
-        selectedList.addEventListener('click', (event) => {
-            if (event.target.tagName === 'LI') {
-                const sourceSemester = event.target.getAttribute('data-semester');
-                toggleSelection(event.target, selectedList, sourceLists[sourceSemester - 1], sourceSemester);
-            }
-        });
-    
-        function toggleSelection(item, source, target, sourceSemester) {
-            if (item.parentElement === source) {
-                // Move the selected item to the selected panel
-                target.appendChild(item);
-                item.setAttribute('data-semester', sourceSemester);
-            } else if (item.parentElement === target) {
-                // Move the selected item back to the source panel of the corresponding semester
-                source.appendChild(item);
-                item.removeAttribute('data-semester');
-            }
-        }
-    
-        // Drag and drop functionality
-        sourceLists.forEach(sourceList => {
-            sourceList.addEventListener('dragstart', (event) => {
-                if (event.target.tagName === 'LI') {
-                    draggedItem = event.target;
-                    event.dataTransfer.setData('text/plain', event.target.innerText);
-                }
-            });
-        });
-    
-        selectedList.addEventListener('dragstart', (event) => {
-            if (event.target.tagName === 'LI') {
-                draggedItem = event.target;
-                event.dataTransfer.setData('text/plain', event.target.innerText);
-            }
-        });
-    
-        sourceLists.forEach(sourceList => {
-            sourceList.addEventListener('dragover', (event) => {
-                event.preventDefault();
-            });
-        });
-    
-        selectedList.addEventListener('dragover', (event) => {
-            event.preventDefault();
-        });
-    
-        selectedList.addEventListener('drop', (event) => {
-            event.preventDefault();
-            if (draggedItem) {
-                const sourceSemester = draggedItem.getAttribute('data-semester');
-                selectedList.appendChild(draggedItem);
-                draggedItem.removeAttribute('data-semester');
-                draggedItem = null;
-            }
-        });
-    
-        sourceLists.forEach(sourceList => {
-            sourceList.addEventListener('drop', (event) => {
-                event.preventDefault();
-                if (draggedItem) {
-                    const sourceSemester = sourceList.id.replace('source-list-', '');
-                    sourceList.appendChild(draggedItem);
-                    draggedItem.setAttribute('data-semester', sourceSemester);
-                    draggedItem = null;
-                }
-            });
-        });
+        event.preventDefault;
     </script>
-    
 </body>
-
 </html>

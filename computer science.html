@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Selection of Computer Science</title>
+    <link rel="icon" type="image/x-icon" href="image2.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #9b7979;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #0074b7;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .nav1,
+        .nav2 {
+            background-color: #a5a3a3;
+            border: 1px solid #4d1e1e;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .source-panel,
+        .selected-panel {
+            background-color: #a3dd9e;
+            border: 1px solid #3f3f3f;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        h3 {
+            color: #0074b7;
+        }
+
+        .subject-card {
+            background-color: #20acac;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .subject-card:hover {
+            background-color: #0074b7;
+            color: #fff;
+        }
+
+        .selected-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #total-credit-hours {
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #e06de0;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #005e9f;
+        }
+
+        #selected-list li,
+        #source-list-1 li,
+        #source-list-2 li,
+        #source-list-3 li,
+        #source-list-4 li,
+        #source-list-5 li,
+        #source-list-6 li,
+        #source-list-7 li,
+        #source-list-8 li {
+            list-style-type: numbers;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Course Selection of Computer Science </h1>
+    <div class="nav">
+        <div class="nav1">
+            <!-- Source Panel -->
+            <!-- ... (your existing HTML code) -->
+            <div class="container">
+                <div class="source-panel">
+                    <h3>Semester 1</h3>
+                    <ul id="source-list-1">
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Introduction to CS (GE) Cr_hrs
+                            (2-1) </li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Calculus and Anaylatical
+                            Geometry (CS supporting) Cr_hrs (3-0) </li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Physics 1(UE) Cr_hrs (2-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Basic Communication Skills (GE)
+                            Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="4">Programming Fundamentals (CS
+                            core) Cr_hrs (3-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="2">Islamic Studies (GE) Cr_hrs
+                            (2-0)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="source-panel">
+                    <h3>Semester 2</h3>
+                    <ul id="source-list-2">
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Multivariable Calculus (CS
+                            supporting) Cr_hrs(3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="4">Object Oriented Programming
+                            (Pre-Req CS116) (CS Core) cr_hrs (3-1) </li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Discrete Maths (CS Core)
+                            cr_hrs(3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Effective Communication Skills
+                            (GE) cr_hrs (3-0) </li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Principles of management (UE)
+                            Cr_hrs (3-0) </li>
+                        <li class="subject-card" draggable="true" data-credit-hours="2">Pakistan Studies (GE) cr_hrs
+                            (2-0)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="source-panel">
+                    <h3>Semester 3</h3>
+                    <ul id="source-list-3">
+                        <li class="subject-card" draggable="true" data-credit-hours="4">Data Structures using Java (CS
+                            Core) Cr_hrs (3-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="4">Digital Logic Design (CS Core)
+                            Cr_hrs (3-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Differential Equations (CS
+                            supporting) cr_hrs (3-0) </li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Probability & Statistics (CS
+                            Supporting) cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="4">Database System (CS Core) cr_hrs
+                            (3-1)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="source-panel">
+                    <h3>Semester 4</h3>
+                    <ul id="source-list-4">
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Applied Linear Algebra (CS
+                            supporting) Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="4">Data Communication and Networks
+                            (CS Core) Cr_hrs (3-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Design and Analysis of Algorithm
+                            (pre req CS 232) (CS Core) Cr_hrs (2-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Web Design & Development/
+                            Elective I Cr_hrs (2-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="4">Operating System (CS Core)
+                            Cr_hrs (3-1)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="source-panel">
+                    <h3>Semester 5</h3>
+                    <ul id="source-list-5">
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Computer Org & Assembly Language
+                            (CS Core) Cr_hrs (2-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Programming in Python Cr_hrs
+                            (2-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Software Engineering (CS Core)
+                            Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Theory of Automata (CS Core)
+                            Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Elective II Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Human Computer Interaction (CS
+                            Core) Cr_hrs (3-0)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="source-panel">
+                    <h3>Semester 6</h3>
+                    <ul id="source-list-6">
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Information Security Cr_hrs
+                            (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Object Oriented Software
+                            Engineering/ Elective III Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Compiler Concepts (CS Core)
+                            Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Mobile application Development
+                            for Android/ Elective IV Cr_hrs (2-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Elective VI Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Elective Cr_hrs (3-0)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="source-panel">
+                    <h3>Semester 7</h3>
+                    <ul id="source-list-7">
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Numerical Analysis (CS
+                            supporting) Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="4">Artificial Intelligence (CS
+                            Core) Cr_hrs (3-1)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Technical Report Writing (GE)
+                            Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Project Phase I (CS Core) Cr_hrs
+                            (0-3)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Mobile application Development
+                            for iOS/ Elective V Cr_hrs (2-1)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="source-panel">
+                    <h3>Semester 8</h3>
+                    <ul id="source-list-8">
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Parallel and Distributed
+                            Computing Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Software Project Management(UE)
+                            Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Professional Practices (GE)
+                            Cr_hrs (3-0)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Project Phase II (CS Core)
+                            Cr_hrs (0-3)</li>
+                        <li class="subject-card" draggable="true" data-credit-hours="3">Entrepreneurship Cr_hrs (3-0)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="nav2">
+            <!-- Selected Panel -->
+            <!-- ... (your existing HTML code) -->
+            <div class="container">
+                <div class="selected-panel">
+                    <h3>Accepted subjects</h3>
+                    <ul id="selected-list"></ul>
+                    <p id="total-credit-hours">Total Credit Hours: 0</p>
+                    <button onclick="saveToWord()">Save to Word</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        event.preventDefault;
+
+        function saveToWord() {
+            const selectedSubjects = selectedList.querySelectorAll('li');
+            const sourceLists = document.querySelectorAll('[id^="source-list-"]');
+            let content = `<!DOCTYPE html>
+        <html>
+        <head>
+            <title>Course Selection</title>
+        </head>
+        <body>
+            <h1>Accepted Subjects</h1>
+            <ul>`;
+
+            selectedSubjects.forEach(subject => {
+                content += `<li>${subject.textContent}</li>`;
+            });
+
+            content += `</ul>
+            <p>Total Credit Hours: ${totalCreditHoursElement.textContent}</p>
+            <h1>Subjects of Semesters That are unselected </h1>`;
+
+            sourceLists.forEach((sourceList, index) => {
+                content += `<h2>Semester ${index + 1}</h2><ul>`;
+                const sourceSubjects = sourceList.querySelectorAll('li');
+                sourceSubjects.forEach(subject => {
+                    content += `<li>${subject.textContent}</li>`;
+                });
+                content += `</ul>`;
+            });
+
+            content += `</body>
+        </html>`;
+
+            const blob = new Blob([content], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'course_selection.doc';
+
+            document.body.appendChild(a);
+
+            a.click();
+
+            window.URL.revokeObjectURL(url);
+        }
+
+    </script>
+    <script>const sourceLists = document.querySelectorAll('[id^="source-list-"]');
+        const selectedList = document.getElementById('selected-list');
+        const totalCreditHoursElement = document.getElementById('total-credit-hours'); // Add this element
+
+        let draggedItem = null;
+
+        // Click activity to select/deselect items
+        sourceLists.forEach(sourceList => {
+            sourceList.addEventListener('click', (event) => {
+                if (event.target.tagName === 'LI') {
+                    const sourceSemester = sourceList.id.replace('source-list-', '');
+                    toggleSelection(event.target, sourceList, selectedList, sourceSemester);
+                    updateTotalCreditHours(); // Update total credit hours when selections change
+                }
+            });
+        });
+
+        selectedList.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                const sourceSemester = event.target.getAttribute('data-semester');
+                toggleSelection(event.target, selectedList, sourceLists[sourceSemester - 1], sourceSemester);
+                updateTotalCreditHours(); // Update total credit hours when selections change
+            }
+        });
+
+        function toggleSelection(item, source, target, sourceSemester) {
+            if (item.parentElement === source) {
+                // Move the selected item to the selected panel
+                target.appendChild(item);
+                item.setAttribute('data-semester', sourceSemester);
+            } else if (item.parentElement === target) {
+                // Move the selected item back to the source panel of the corresponding semester
+                source.appendChild(item);
+                item.removeAttribute('data-semester');
+            }
+        }
+
+        // Update total credit hours
+        function updateTotalCreditHours() {
+            const selectedSubjects = selectedList.querySelectorAll('li');
+            let totalCreditHours = 0;
+            selectedSubjects.forEach(subject => {
+                const creditHours = parseInt(subject.getAttribute('data-credit-hours'));
+                if (!isNaN(creditHours)) {
+                    totalCreditHours += creditHours;
+                }
+            });
+            totalCreditHoursElement.textContent = `Total Credit Hours: ${totalCreditHours}`;
+        }
+
+
+        // Drag and drop functionality
+        selectedList.addEventListener('dragover', (event) => {
+            event.preventDefault();
+        });
+
+        selectedList.addEventListener('drop', (event) => {
+            event.preventDefault();
+            if (draggedItem) {
+                const sourceSemester = draggedItem.getAttribute('data-semester');
+                selectedList.appendChild(draggedItem);
+                draggedItem.removeAttribute('data-semester');
+                draggedItem = null;
+                updateTotalCreditHours(); // Update total credit hours when an item is dropped
+            }
+        });
+
+        sourceLists.forEach(sourceList => {
+            sourceList.addEventListener('dragover', (event) => {
+                event.preventDefault();
+            });
+
+            sourceList.addEventListener('drop', (event) => {
+                event.preventDefault();
+                if (draggedItem) {
+                    const sourceSemester = sourceList.id.replace('source-list-', '');
+                    sourceList.appendChild(draggedItem);
+                    draggedItem.setAttribute('data-semester', sourceSemester);
+                    draggedItem = null;
+                    updateTotalCreditHours(); // Update total credit hours when an item is dropped
+                }
+            });
+        });
+
+
+        sourceLists.forEach(sourceList => {
+            sourceList.addEventListener('dragstart', (event) => {
+                if (event.target.tagName === 'LI') {
+                    draggedItem = event.target;
+                    event.dataTransfer.setData('text/plain', event.target.innerText);
+                }
+            });
+        });
+
+        selectedList.addEventListener('dragstart', (event) => {
+            if (event.target.tagName === 'LI') {
+                draggedItem = event.target;
+                event.dataTransfer.setData('text/plain', event.target.innerText);
+            }
+        });
+
+        sourceLists.forEach(sourceList => {
+            sourceList.addEventListener('dragover', (event) => {
+                event.preventDefault();
+            });
+        });
+
+        selectedList.addEventListener('dragover', (event) => {
+            event.preventDefault();
+        });
+
+        selectedList.addEventListener('drop', (event) => {
+            event.preventDefault();
+            if (draggedItem) {
+                const sourceSemester = draggedItem.getAttribute('data-semester');
+                selectedList.appendChild(draggedItem);
+                draggedItem.removeAttribute('data-semester');
+                draggedItem = null;
+            }
+        });
+
+        sourceLists.forEach(sourceList => {
+            sourceList.addEventListener('drop', (event) => {
+                event.preventDefault();
+                if (draggedItem) {
+                    const sourceSemester = sourceList.id.replace('source-list-', '');
+                    sourceList.appendChild(draggedItem);
+                    draggedItem.setAttribute('data-semester', sourceSemester);
+                    draggedItem = null;
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
